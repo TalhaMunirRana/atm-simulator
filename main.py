@@ -9,12 +9,20 @@ while True:
         print(f"\nYour balance is: ${balance}")
     elif option == '2':
         amount = int(input("\nEnter deposit amount: "))
-        balance += amount
-        print(f"\n${amount} deposited successfully.")
+        if amount > 0:
+            balance += amount
+            print(f"\n${amount} deposited successfully.")
+        else:
+            print("\nYou can't deposit a negative amount.")
     elif option == '3':
         amount = int(input("\nEnter withdrawal amount: "))
-        balance -= amount
-        print(f"\n${amount} withdrawn successfully.")
+        if 0 <= amount <= balance:
+            balance -= amount
+            print(f"\n${amount} withdrawn successfully.")
+        elif amount > balance:
+            print("\nInsufficient funds.")
+        else:
+            print("\nYou can't withdraw a negative amount")
     elif option == '4':
         break
     else:
